@@ -48,9 +48,45 @@ function handleNavScroll() {
     }
 }
 
-// Project card hover effects
+// Project card hover effects and navigation functionality
 function initProjectCards() {
     const projectCards = document.querySelectorAll('.project-card');
+    
+    // Project data with page URLs - you can update these with actual project page URLs
+    const projectData = {
+        'E-commerce Mobile App Redesign': {
+            pageUrl: 'projects/ecommerce-redesign.html',
+            category: 'UX/UI Design'
+        },
+        'SaaS Dashboard Interface': {
+            pageUrl: 'projects/saas-dashboard.html',
+            category: 'UX/UI Design'
+        },
+        'Healthcare Portal Design': {
+            pageUrl: 'projects/healthcare-portal.html',
+            category: 'UX/UI Design'
+        },
+        'Tech Startup Branding': {
+            pageUrl: 'projects/tech-startup-branding.html',
+            category: 'Graphic Design'
+        },
+        'Annual Report Design': {
+            pageUrl: 'projects/annual-report.html',
+            category: 'Graphic Design'
+        },
+        'Product Packaging Series': {
+            pageUrl: 'projects/product-packaging.html',
+            category: 'Graphic Design'
+        },
+        'Micro-interactions Collection': {
+            pageUrl: 'projects/micro-interactions.html',
+            category: 'Animation'
+        },
+        'Explainer Video Series': {
+            pageUrl: 'projects/explainer-videos.html',
+            category: 'Animation'
+        }
+    };
     
     projectCards.forEach(card => {
         card.addEventListener('mouseenter', () => {
@@ -61,10 +97,18 @@ function initProjectCards() {
             card.style.transform = 'translateY(0)';
         });
         
-        // Add click functionality for future project detail pages
+        // Add click functionality to navigate to project pages
         card.addEventListener('click', () => {
-            // This would navigate to individual project pages
-            console.log('Project clicked:', card.querySelector('h3').textContent);
+            const projectTitle = card.querySelector('h3').textContent;
+            const projectInfo = projectData[projectTitle];
+            
+            if (projectInfo && projectInfo.pageUrl) {
+                // Navigate to the project page
+                window.location.href = projectInfo.pageUrl;
+            } else {
+                // Fallback for projects without URLs
+                console.log('Project page not found for:', projectTitle);
+            }
         });
     });
 }
@@ -97,6 +141,7 @@ function initScrollAnimations() {
 }
 
 // Typing animation for home title
+/*
 function initTypingAnimation() {
     const titleElement = document.querySelector('.home-title');
     const text = titleElement.innerHTML;
@@ -114,6 +159,7 @@ function initTypingAnimation() {
     // Start typing animation when page loads
     setTimeout(typeWriter, 500);
 }
+*/
 
 // Parallax effect for home section
 function initParallax() {

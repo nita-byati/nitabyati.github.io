@@ -4,269 +4,559 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nita Byati - UX/UI Designer</title>
-    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: #000;
+            background-color: #fff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        /* Header */
+        header {
+            padding: 40px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 32px;
+            font-weight: bold;
+            color: #B85B9C;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #000;
+            font-weight: 400;
+            transition: color 0.3s;
+        }
+
+        nav a:hover, nav a.active {
+            color: #B85B9C;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            font-weight: 300;
+            margin-bottom: 20px;
+        }
+
+        .hero .highlight {
+            color: #B85B9C;
+        }
+
+        .hero p {
+            font-size: 20px;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto 40px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .btn {
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .btn-primary {
+            background: #B85B9C;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #9d4a85;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #000;
+            border: 2px solid #000;
+        }
+
+        .btn-secondary:hover {
+            background: #000;
+            color: white;
+        }
+
+        /* Sections */
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-alt {
+            background-color: #fafafa;
+        }
+
+        .section h2 {
+            font-size: 36px;
+            font-weight: 300;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .section-description {
+            text-align: center;
+            color: #666;
+            font-size: 18px;
+            margin-bottom: 60px;
+        }
+
+        /* Project Grid */
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+        }
+
+        .project {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .project:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        .project-image {
+            height: 200px;
+            background: #f5f5f5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+            font-size: 16px;
+        }
+
+        .project-content {
+            padding: 25px;
+        }
+
+        .project h3 {
+            font-size: 22px;
+            margin-bottom: 10px;
+            color: #000;
+        }
+
+        .project p {
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .tag {
+            background: #f0f0f0;
+            color: #666;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 12px;
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 60px;
+            align-items: start;
+        }
+
+        .about-text h2 {
+            text-align: left;
+            margin-bottom: 30px;
+        }
+
+        .about-text p {
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 25px;
+        }
+
+        .skills {
+            margin: 40px 0;
+        }
+
+        .skills h3 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: #B85B9C;
+        }
+
+        .skills ul {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 8px;
+        }
+
+        .skills li {
+            color: #666;
+            padding: 5px 0;
+        }
+
+        .profile-placeholder {
+            width: 100%;
+            height: 300px;
+            background: #f5f5f5;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+        }
+
+        /* Footer */
+        footer {
+            background: #000;
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .social-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: #B85B9C;
+        }
+
+        /* Mobile */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 20px;
+            }
+
+            .header-content {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            nav ul {
+                gap: 20px;
+            }
+
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .projects {
+                grid-template-columns: 1fr;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                gap: 20px;
+            }
+        }
+    </style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="nav">
-        <div class="nav-container">
-            <div class="nav-logo">
-                <span class="logo-nb">nb</span>
-            </div>
-            <ul class="nav-menu">
-                <li><a href="#home" class="nav-link active">Home</a></li>
-                <li><a href="#ux-ui" class="nav-link">UX/UI</a></li>
-                <li><a href="#graphic-design" class="nav-link">Graphic Design</a></li>
-                <li><a href="#animation" class="nav-link">Animation</a></li>
-                <li><a href="#about" class="nav-link">About</a></li>
-            </ul>
-            <div class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Home Section -->
-    <section id="home" class="section home-section">
+    <!-- Header -->
+    <header>
         <div class="container">
-            <div class="home-content">
-                <h1 class="home-title">
-                    Hi, I'm <span class="highlight">Nita Byati</span>
-                </h1>
-                <h2 class="home-subtitle">UX/UI Designer & Visual Storyteller</h2>
-                <p class="home-description">
-                    I craft intuitive digital experiences through user-centered design, 
-                    combining strategic thinking with creative problem-solving to create 
-                    meaningful connections between people and products.
-                </p>
-                <div class="home-cta">
-                    <a href="#ux-ui" class="btn-primary">View My Work</a>
-                    <a href="#about" class="btn-secondary">About Me</a>
-                </div>
-            </div>
-            <div class="home-visual">
-                <div class="design-element"></div>
+            <div class="header-content">
+                <img src="images/logo.jpg" alt="Nita Byati logo" style="height: 40px;" />
+                <nav>
+                    <ul>
+                        <li><a href="#home" class="active">Home</a></li>
+                        <li><a href="#ux-ui">UX/UI</a></li>
+                        <li><a href="#graphic-design">Graphic Design</a></li>
+                        <li><a href="#animation">Animation</a></li>
+                        <li><a href="#about">About</a></li>
+                    </ul>
+                </nav>
             </div>
         </div>
-        <div class="scroll-indicator">
-            <span>Scroll to explore</span>
-            <div class="scroll-arrow"></div>
+    </header>
+
+    <!-- Hero -->
+    <section id="home" class="hero">
+        <div class="container">
+            <h1>Hi, I'm <span class="highlight">Nita Byati</span></h1>
+            <p>UX/UI designer, graphic designer, and animator creating meaningful digital experiences through user-centered design and creative problem-solving.</p>
+            <div class="cta-buttons">
+                <a href="#ux-ui" class="btn btn-primary">View My Work</a>
+            </div>
         </div>
     </section>
 
-    <!-- UX/UI Section -->
+    <!-- UX/UI Projects -->
     <section id="ux-ui" class="section">
         <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">UX/UI Projects</h2>
-                <p class="section-description">User-centered solutions that solve real problems</p>
-            </div>
-            <div class="projects-grid">
-                <div class="project-card featured">
-                    <div class="project-image">
-                        <div class="project-placeholder">UX Case Study 1</div>
-                    </div>
+            <h2>UX/UI Projects</h2>
+            <p class="section-description">User-centered solutions that solve real problems</p>
+            <div class="projects">
+                <a href="projects/project-denver-zoo.html" class="project">
+                    <div class="project-image"><img src="images/denverzoohero.png" alt="Denver Zoo Ticket System" style="width: 100%; height: 100%; object-fit: cover;" /></div>
                     <div class="project-content">
-                        <h3>E-commerce Mobile App Redesign</h3>
-                        <p>Increased conversion rates by 40% through user research and iterative design</p>
+                        <h3>Denver Zoo Ticket System Redesign</h3>
+                        <p>Streamlined the ticket purchasing experience for visitors through improved user flow and interface design</p>
                         <div class="project-tags">
-                            <span>User Research</span>
-                            <span>Prototyping</span>
-                            <span>Usability Testing</span>
+                            <span class="tag">User Research</span>
+                            <span class="tag">Interface Design</span>
+                            <span class="tag">User Flow</span>
                         </div>
                     </div>
-                </div>
-                <div class="project-card">
-                    <div class="project-image">
-                        <div class="project-placeholder">UX Case Study 2</div>
-                    </div>
+                </a>
+
+                <a href="projects/project-reduce-reuse.html" class="project">
+                    <div class="project-image"><img src="images/updatedlogo.png" alt="Reduce by Reuse logo" style="width: 100%; height: 100%; object-fit: cover;" /></div>
                     <div class="project-content">
-                        <h3>SaaS Dashboard Interface</h3>
-                        <p>Streamlined complex data visualization for better user comprehension</p>
+                        <h3>Reduce by Reuse</h3>
+                        <p>Sustainable living app promoting reuse and waste reduction through community-driven solutions</p>
                         <div class="project-tags">
-                            <span>Information Architecture</span>
-                            <span>Data Visualization</span>
+                            <span class="tag">Sustainability</span>
+                            <span class="tag">Mobile Design</span>
+                            <span class="tag">Community Features</span>
                         </div>
                     </div>
-                </div>
-                <div class="project-card">
-                    <div class="project-image">
-                        <div class="project-placeholder">UX Case Study 3</div>
-                    </div>
-                    <div class="project-content">
-                        <h3>Healthcare Portal Design</h3>
-                        <p>Improved patient experience through accessible and inclusive design</p>
-                        <div class="project-tags">
-                            <span>Accessibility</span>
-                            <span>Service Design</span>
-                        </div>
-                    </div>
-                </div>
+                </a>
             </div>
         </div>
     </section>
 
-    <!-- Graphic Design Section -->
+    <!-- Graphic Design -->
     <section id="graphic-design" class="section section-alt">
         <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Graphic Design</h2>
-                <p class="section-description">Visual communication that makes an impact</p>
-            </div>
-            <div class="projects-grid">
-                <div class="project-card">
-                    <div class="project-image">
-                        <div class="project-placeholder">Brand Identity</div>
-                    </div>
+            <h2>Graphic Design</h2>
+            <p class="section-description">Visual communication that makes an impact</p>
+            <div class="projects">
+                <a href="projects/project-moving-poster.html" class="project">
+                    <div class="project-image"><video src="videos/black kray.mov" autoplay loop muted style="width: 100%; height: 100%; object-fit: cover;" /></div>
                     <div class="project-content">
-                        <h3>Tech Startup Branding</h3>
-                        <p>Complete brand identity system including logo, guidelines, and collateral</p>
+                        <h3>Moving Poster</h3>
+                        <p>Dynamic poster design exploring movement and visual storytelling</p>
                         <div class="project-tags">
-                            <span>Brand Identity</span>
-                            <span>Logo Design</span>
+                            <span class="tag">Poster Design</span>
+                            <span class="tag">Visual Storytelling</span>
                         </div>
                     </div>
-                </div>
-                <div class="project-card">
-                    <div class="project-image">
-                        <div class="project-placeholder">Print Design</div>
-                    </div>
+                </a>
+
+                <a href="projects/project-bus-to-show.html" class="project">
+                    <div class="project-image"><img src="images/BTS_LOGO-orange-with-transparent-background-hi-res.png" alt="Bus to Show Logo" style="width: 100%; height: 100%; object-fit: cover;" /></div>
                     <div class="project-content">
-                        <h3>Annual Report Design</h3>
-                        <p>Data-driven storytelling through compelling visual layouts</p>
+                        <h3>Bus to Show Informational Posters</h3>
+                        <p>Informational poster series designed to guide and inform audiences</p>
                         <div class="project-tags">
-                            <span>Editorial Design</span>
-                            <span>Typography</span>
+                            <span class="tag">Information Design</span>
+                            <span class="tag">Poster Series</span>
                         </div>
                     </div>
-                </div>
-                <div class="project-card">
-                    <div class="project-image">
-                        <div class="project-placeholder">Packaging</div>
-                    </div>
+                </a>
+
+                <a href="projects/project-eyce-font.html" class="project">
+                    <div class="project-image"><img src="images/eyce.jpg" alt="Eyce Font Display" style="width: 100%; height: 100%; object-fit: cover;" /></div>
                     <div class="project-content">
-                        <h3>Product Packaging Series</h3>
-                        <p>Sustainable packaging design that enhances brand experience</p>
+                        <h3>Font - "Eyce"</h3>
+                        <p>Custom typeface design exploring unique letterforms and character</p>
                         <div class="project-tags">
-                            <span>Packaging Design</span>
-                            <span>Sustainability</span>
+                            <span class="tag">Typography</span>
+                            <span class="tag">Font Design</span>
                         </div>
                     </div>
-                </div>
+                </a>
+
+                <a href="projects/project-banned-book.html" class="project">
+                    <div class="project-image"><img src="images/bannedbookcover.png" alt="Banned Book Cover" style="width: 100%; height: 100%; object-fit: cover;" /></div>
+                    <div class="project-content">
+                        <h3>Banned Book Cover</h3>
+                        <p>Book cover design addressing censorship and freedom of expression</p>
+                        <div class="project-tags">
+                            <span class="tag">Book Design</span>
+                            <span class="tag">Concept Design</span>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="projects/project-murder-mystery.html" class="project">
+                    <div class="project-image"><img src="images/murdermyster.png" alt="Murder Mystery Design" style="width: 100%; height: 100%; object-fit: cover;" /></div>
+                    <div class="project-content">
+                        <h3>Murder Mystery</h3>
+                        <p>Visual identity and promotional materials for mystery entertainment</p>
+                        <div class="project-tags">
+                            <span class="tag">Visual Identity</span>
+                            <span class="tag">Promotional Design</span>
+                        </div>
+                    </div>
+                </a>
             </div>
         </div>
     </section>
 
-    <!-- Animation Section -->
+    <!-- Animation -->
     <section id="animation" class="section">
         <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Animation</h2>
-                <p class="section-description">Bringing designs to life through motion</p>
-            </div>
-            <div class="projects-grid">
-                <div class="project-card">
-                    <div class="project-image">
-                        <div class="project-placeholder">UI Animation</div>
-                    </div>
+            <h2>Animation</h2>
+            <p class="section-description">Bringing designs to life through motion</p>
+            <div class="projects">
+                <a href="projects/project-reduce-reuse-animation.html" class="project">
+                    <div class="project-image"><video src="videos/byatinita-final_2.mp4" autoplay loop muted style="width: 100%; height: 100%; object-fit: cover;" /></div>
                     <div class="project-content">
-                        <h3>Micro-interactions Collection</h3>
-                        <p>Delightful UI animations that enhance user experience</p>
+                        <h3>Reduce by Reuse</h3>
+                        <p>Animated storytelling promoting sustainability and environmental awareness</p>
                         <div class="project-tags">
-                            <span>UI Animation</span>
-                            <span>Micro-interactions</span>
+                            <span class="tag">Motion Graphics</span>
+                            <span class="tag">Sustainability</span>
+                            <span class="tag">Storytelling</span>
                         </div>
                     </div>
-                </div>
-                <div class="project-card">
-                    <div class="project-image">
-                        <div class="project-placeholder">Motion Graphics</div>
-                    </div>
-                    <div class="project-content">
-                        <h3>Explainer Video Series</h3>
-                        <p>Complex concepts simplified through engaging motion design</p>
-                        <div class="project-tags">
-                            <span>Motion Graphics</span>
-                            <span>Storytelling</span>
-                        </div>
-                    </div>
-                </div>
+                </a>
             </div>
         </div>
     </section>
 
-    <!-- About Section -->
+    <!-- About -->
     <section id="about" class="section section-alt">
         <div class="container">
             <div class="about-content">
                 <div class="about-text">
-                    <h2 class="section-title">About Me</h2>
-                    <div class="about-description">
-                        <p>I'm a UX/UI designer with a passion for creating meaningful digital experiences. My background in graphic design gives me a unique perspective on visual communication, while my UX training ensures every design decision is grounded in user research and testing.</p>
-                        <p>I believe great design is invisible – it solves problems so elegantly that users don't have to think about it. My approach combines strategic thinking, creative problem-solving, and attention to detail to deliver solutions that are both beautiful and functional.</p>
-                    </div>
+                    <h2>About Me</h2>
+                    <p>I'm a UX/UI designer with a passion for creating meaningful digital experiences. My background in graphic design gives me a unique perspective on visual communication, while my UX training ensures every design decision is grounded in user research and testing.</p>
+                    <p>I believe great design is invisible – it solves problems so elegantly that users don't have to think about it. My approach combines strategic thinking, creative problem-solving, and attention to detail.</p>
+                    
                     <div class="skills">
                         <h3>Skills & Tools</h3>
-                        <div class="skills-grid">
-                            <div class="skill-category">
-                                <h4>UX/UI</h4>
-                                <ul>
-                                    <li>User Research</li>
-                                    <li>Wireframing</li>
-                                    <li>Prototyping</li>
-                                    <li>Usability Testing</li>
-                                </ul>
-                            </div>
-                            <div class="skill-category">
-                                <h4>Design Tools</h4>
-                                <ul>
-                                    <li>Figma</li>
-                                    <li>Adobe Creative Suite</li>
-                                    <li>Sketch</li>
-                                    <li>Principle</li>
-                                </ul>
-                            </div>
-                            <div class="skill-category">
-                                <h4>Development</h4>
-                                <ul>
-                                    <li>HTML/CSS</li>
-                                    <li>JavaScript</li>
-                                    <li>React</li>
-                                    <li>Git</li>
-                                </ul>
-                            </div>
-                        </div>
+                        <ul>
+                            <li>User Research & Testing</li>
+                            <li>Wireframing & Prototyping</li>
+                            <li>Figma & Adobe Creative Suite</li>
+                            <li>HTML/CSS & JavaScript</li>
+                            <li>Brand Identity Design</li>
+                            <li>Motion Graphics</li>
+                        </ul>
                     </div>
-                    <div class="contact-info">
-                        <a href="mailto:nita@example.com" class="btn-primary">Get In Touch</a>
-                        <div class="social-links">
-                            <a href="#" class="social-link">LinkedIn</a>
-                            <a href="#" class="social-link">Dribbble</a>
-                            <a href="#" class="social-link">Behance</a>
-                        </div>
-                    </div>
+
+                    <a href="mailto:nita@example.com" class="btn btn-primary">Get In Touch</a>
                 </div>
                 <div class="about-visual">
-                    <div class="profile-placeholder">Profile Image</div>
+                    <div class="profile-placeholder">Your Profile Image</div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="footer">
+    <footer>
         <div class="container">
             <div class="footer-content">
-                <div class="footer-logo">
-                    <span class="logo-nb">nb</span>
+                <div class="logo">nb</div>
+                <div class="social-links">
+                    <a href="#">LinkedIn</a>
+                    <a href="#">Dribbble</a>
+                    <a href="#">Behance</a>
                 </div>
-                <p>&copy; 2024 Nita Byati. All rights reserved.</p>
             </div>
+            <p style="margin-top: 20px;">&copy; 2024 Nita Byati. All rights reserved.</p>
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script>
+        // Simple smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Update active nav link on scroll
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('nav a');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                if (scrollY >= sectionTop) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
 </body>
 </html>
