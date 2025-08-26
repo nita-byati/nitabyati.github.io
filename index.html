@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Denver Zoo Ticket System Redesign - Nita Byati</title>
+    <title>Nita Byati - UX/UI Designer</title>
     <style>
         * {
             margin: 0;
@@ -19,170 +19,267 @@
         }
 
         .container {
-            max-width: 800px;
+            max-width: 1200px;
             margin: 0 auto;
             padding: 0 40px;
         }
 
         /* Header */
         header {
-            padding: 20px 0;
+            padding: 40px 0;
             border-bottom: 1px solid #eee;
         }
 
-        .back-link {
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 32px;
+            font-weight: bold;
             color: #db5292;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        nav a {
             text-decoration: none;
-            font-size: 16px;
+            color: #000;
+            font-weight: 400;
+            transition: color 0.3s;
         }
 
-        .back-link:hover {
-            text-decoration: underline;
+        nav a:hover, nav a.active {
+            color: #db5292;
         }
 
-        /* Project Hero */
-        .project-hero {
-            padding: 60px 0;
+        /* Hero Section */
+        .hero {
+            padding: 80px 0;
             text-align: center;
         }
 
-        .project-hero h1 {
-            font-size: 42px;
+        .hero h1 {
+            font-size: 48px;
             font-weight: 300;
             margin-bottom: 20px;
         }
 
-        .project-hero p {
+        .hero .highlight {
+            color: #db5292;
+        }
+
+        .hero p {
             font-size: 20px;
             color: #666;
-            margin-bottom: 40px;
+            max-width: 600px;
+            margin: 0 auto 40px;
         }
 
-        .project-meta {
+        .cta-buttons {
             display: flex;
+            gap: 20px;
             justify-content: center;
-            gap: 60px;
-            margin-bottom: 40px;
         }
 
-        .meta-item {
+        .btn {
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .btn-primary {
+            background: #db5292;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #db5292;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #000;
+            border: 2px solid #000;
+        }
+
+        .btn-secondary:hover {
+            background: #000;
+            color: white;
+        }
+
+        /* Sections */
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-alt {
+            background-color: #fafafa;
+        }
+
+        .section h2 {
+            font-size: 36px;
+            font-weight: 300;
+            margin-bottom: 20px;
             text-align: center;
         }
 
-        .meta-label {
-            font-size: 12px;
-            color: #db5292;
-            font-weight: 600;
-            text-transform: uppercase;
-            margin-bottom: 5px;
+        .section-description {
+            text-align: center;
+            color: #666;
+            font-size: 18px;
+            margin-bottom: 60px;
         }
 
-        .meta-value {
-            font-size: 16px;
-            color: #000;
+        /* Project Grid */
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
         }
 
-        /* Content */
-        .project-content {
-            padding: 40px 0;
+        .project {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .project:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
         }
 
         .project-image {
+            height: 200px;
+            background: #f5f5f5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+            font-size: 16px;
+        }
+
+        .project-content {
+            padding: 25px;
+        }
+
+        .project h3 {
+            font-size: 22px;
+            margin-bottom: 10px;
+            color: #000;
+        }
+
+        .project p {
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .tag {
+            background: #f0f0f0;
+            color: #666;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 12px;
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 60px;
+            align-items: start;
+        }
+
+        .about-text h2 {
+            text-align: left;
+            margin-bottom: 30px;
+        }
+
+        .about-text p {
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 25px;
+        }
+
+        .skills {
+            margin: 40px 0;
+        }
+
+        .skills h3 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: #db5292;
+        }
+
+        .skills ul {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 8px;
+        }
+
+        .skills li {
+            color: #666;
+            padding: 5px 0;
+        }
+
+        .profile-placeholder {
             width: 100%;
-            height: 400px;
+            height: 300px;
             background: #f5f5f5;
             border-radius: 10px;
             display: flex;
             align-items: center;
             justify-content: center;
             color: #999;
-            font-size: 18px;
-            margin: 40px 0;
         }
 
-        .project-section {
-            margin-bottom: 50px;
-        }
-
-        .project-section h2 {
-            font-size: 32px;
-            font-weight: 300;
-            margin-bottom: 20px;
+        /* Footer */
+        footer {
+            background: #fff;
             color: #000;
-        }
-
-        .project-section h3 {
-            font-size: 24px;
-            font-weight: 400;
-            margin-bottom: 15px;
-            color: #666;
-        }
-
-        .project-section p {
-            font-size: 18px;
-            color: #666;
-            margin-bottom: 20px;
-            line-height: 1.8;
-        }
-
-        .project-section ul {
-            margin: 20px 0;
-            padding-left: 20px;
-        }
-
-        .project-section li {
-            margin-bottom: 10px;
-            color: #666;
-            font-size: 16px;
-        }
-
-        .highlight-stats {
-            background: #fafafa;
-            padding: 30px;
-            border-radius: 10px;
-            margin: 30px 0;
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
-        }
-
-        .stat {
+            padding: 40px 0;
             text-align: center;
+            border-top: 1px solid #eee;
         }
 
-        .stat-number {
-            font-size: 32px;
-            font-weight: bold;
-            color: #db5292;
-            margin-bottom: 5px;
-        }
-
-        .stat-label {
-            font-size: 14px;
-            color: #666;
-        }
-
-        /* Navigation */
-        .project-nav {
+        .footer-content {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 40px 0;
-            border-top: 1px solid #eee;
-            margin-top: 60px;
         }
 
-        .nav-link {
-            color: #db5292;
+        .social-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .social-links a {
+            color: #000;
             text-decoration: none;
-            font-weight: 500;
+            transition: color 0.3s;
         }
 
-        .nav-link:hover {
-            text-decoration: underline;
+        .social-links a:hover {
+            color: #db5292;
         }
 
         /* Mobile */
@@ -191,23 +288,36 @@
                 padding: 0 20px;
             }
 
-            .project-hero h1 {
-                font-size: 32px;
-            }
-
-            .project-meta {
+            .header-content {
                 flex-direction: column;
                 gap: 20px;
             }
 
-            .stats-grid {
+            nav ul {
+                gap: 20px;
+            }
+
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .projects {
                 grid-template-columns: 1fr;
             }
 
-            .project-nav {
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .footer-content {
                 flex-direction: column;
                 gap: 20px;
-                text-align: center;
             }
         }
     </style>
@@ -216,116 +326,233 @@
     <!-- Header -->
     <header>
         <div class="container">
-            <a href="index.html" class="back-link">← Back to Portfolio</a>
+            <div class="header-content">
+                <img src="images/logo.jpg" alt="Nita Byati logo" style="height: 40px;" />
+                <nav>
+                    <ul>
+                        <li><a href="#home" class="active">Home</a></li>
+                        <li><a href="#ux-ui">UX/UI</a></li>
+                        <li><a href="#graphic-design">Graphic Design</a></li>
+                        <li><a href="#animation">Animation</a></li>
+                        <li><a href="#about">About</a></li>
+                    </ul>
+                </nav>
+            </div>
         </div>
     </header>
 
-    <!-- Project Hero -->
-    <section class="project-hero">
+    <!-- Hero -->
+    <section id="home" class="hero">
         <div class="container">
-            <h1>Denver Zoo Ticket System Redesign</h1>
-            <p>Streamlining the ticket purchasing experience for zoo visitors</p>
-            
-            <div class="project-meta">
-                <div class="meta-item">
-                    <div class="meta-label">Duration</div>
-                    <div class="meta-value">4 weeks</div>
-                </div>
-                <div class="meta-item">
-                    <div class="meta-label">Role</div>
-                    <div class="meta-value">UX/UI Designer</div>
-                </div>
-                <div class="meta-item">
-                    <div class="meta-label">Team</div>
-                    <div class="meta-value">Individual Project</div>
+            <h1>Hi, I'm <span class="highlight">Nita Byati</span></h1>
+            <p>UX/UI designer, graphic designer, and animator creating meaningful digital experiences through user-centered design and creative problem-solving.</p>
+            <div class="cta-buttons">
+                <a href="#ux-ui" class="btn btn-primary">View My Work</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- UX/UI Projects -->
+    <section id="ux-ui" class="section">
+        <div class="container">
+            <h2>UX/UI Projects</h2>
+            <p class="section-description">User-centered solutions that solve real problems</p>
+            <div class="projects">
+                <a href="projects/project-denver-zoo.html" class="project">
+                    <div class="project-image"><img src="images/denverzoohero.png" alt="Denver Zoo Ticket System" style="width: 100%; height: 100%; object-fit: cover;" /></div>
+                    <div class="project-content">
+                        <h3>Denver Zoo Ticket System Redesign</h3>
+                        <p>Streamlined the ticket purchasing experience for visitors through improved user flow and interface design</p>
+                        <div class="project-tags">
+                            <span class="tag">User Research</span>
+                            <span class="tag">Interface Design</span>
+                            <span class="tag">User Flow</span>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="projects/project-reduce-reuse.html" class="project">
+                    <div class="project-image"><img src="images/updatedlogo.png" alt="Reduce by Reuse logo" style="width: 100%; height: 100%; object-fit: cover;" /></div>
+                    <div class="project-content">
+                        <h3>Reduce by Reuse</h3>
+                        <p>Sustainable living app promoting reuse and waste reduction through community-driven solutions</p>
+                        <div class="project-tags">
+                            <span class="tag">Sustainability</span>
+                            <span class="tag">Mobile Design</span>
+                            <span class="tag">Community Features</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Graphic Design -->
+    <section id="graphic-design" class="section section-alt">
+        <div class="container">
+            <h2>Graphic Design</h2>
+            <p class="section-description">Visual communication that makes an impact</p>
+            <div class="projects">
+                <a href="projects/project-moving-poster.html" class="project">
+                    <div class="project-image"><video src="videos/black kray.mov" autoplay loop muted style="width: 100%; height: 100%; object-fit: cover;" /></div>
+                    <div class="project-content">
+                        <h3>Moving Poster</h3>
+                        <p>Dynamic poster design exploring movement and visual storytelling</p>
+                        <div class="project-tags">
+                            <span class="tag">Poster Design</span>
+                            <span class="tag">Visual Storytelling</span>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="projects/project-bus-to-show.html" class="project">
+                    <div class="project-image"><img src="images/BTS_LOGO-orange-with-transparent-background-hi-res.png" alt="Bus to Show Logo" style="width: 100%; height: 100%; object-fit: cover;" /></div>
+                    <div class="project-content">
+                        <h3>Bus to Show Informational Posters</h3>
+                        <p>Informational poster series designed to guide and inform audiences</p>
+                        <div class="project-tags">
+                            <span class="tag">Information Design</span>
+                            <span class="tag">Poster Series</span>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="projects/project-eyce-font.html" class="project">
+                    <div class="project-image"><img src="images/eyce.jpg" alt="Eyce Font Display" style="width: 100%; height: 100%; object-fit: cover;" /></div>
+                    <div class="project-content">
+                        <h3>Font - "Eyce"</h3>
+                        <p>Custom typeface design exploring unique letterforms and character</p>
+                        <div class="project-tags">
+                            <span class="tag">Typography</span>
+                            <span class="tag">Font Design</span>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="projects/project-banned-book.html" class="project">
+                    <div class="project-image"><img src="images/bannedbookcover.png" alt="Banned Book Cover" style="width: 100%; height: 100%; object-fit: cover;" /></div>
+                    <div class="project-content">
+                        <h3>Banned Book Cover</h3>
+                        <p>Book cover design addressing censorship and freedom of expression</p>
+                        <div class="project-tags">
+                            <span class="tag">Book Design</span>
+                            <span class="tag">Concept Design</span>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="projects/project-murder-mystery.html" class="project">
+                    <div class="project-image"><img src="images/murdermyster.png" alt="Murder Mystery Design" style="width: 100%; height: 100%; object-fit: cover;" /></div>
+                    <div class="project-content">
+                        <h3>Murder Mystery</h3>
+                        <p>Visual identity and promotional materials for mystery entertainment</p>
+                        <div class="project-tags">
+                            <span class="tag">Visual Identity</span>
+                            <span class="tag">Promotional Design</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Animation -->
+    <section id="animation" class="section">
+        <div class="container">
+            <h2>Animation</h2>
+            <p class="section-description">Bringing designs to life through motion</p>
+            <div class="projects">
+                <a href="projects/project-reduce-reuse-animation.html" class="project">
+                    <div class="project-image"><video src="videos/byatinita-final_2.mp4" autoplay loop muted style="width: 100%; height: 100%; object-fit: cover;" /></div>
+                    <div class="project-content">
+                        <h3>Reduce by Reuse</h3>
+                        <p>Animated storytelling promoting sustainability and environmental awareness</p>
+                        <div class="project-tags">
+                            <span class="tag">Motion Graphics</span>
+                            <span class="tag">Sustainability</span>
+                            <span class="tag">Storytelling</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="section section-alt">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>About Me</h2>
+                    <p>I'm a UX/UI designer with a passion for creating meaningful digital experiences. My background in graphic design gives me a unique perspective on visual communication, while my UX training ensures every design decision is grounded in user research and testing.</p>
+                    <p>I believe great design is invisible – it solves problems so elegantly that users don't have to think about it. My approach combines strategic thinking, creative problem-solving, and attention to detail.</p>
+                    
+                    <div class="skills">
+                        <h3>Skills & Tools</h3>
+                        <ul>
+                            <li>User Research & Testing</li>
+                            <li>Wireframing & Prototyping</li>
+                            <li>Figma & Adobe Creative Suite</li>
+                            <li>HTML/CSS & JavaScript</li>
+                            <li>Brand Identity Design</li>
+                            <li>Motion Graphics</li>
+                        </ul>
+                    </div>
+
+                    <a href="https://www.linkedin.com/in/nita-byati" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Linkedin</a>                </div>
+                <div class="about-visual">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Project Content -->
-    <main class="project-content">
+    <!-- Footer -->
+    <footer>
         <div class="container">
+            <div class="footer-content">
+                <img src="images/logo.jpg" alt="Nita Byati logo" style="height: 40px;" />
+
+              
+            </div>
+            <p style="margin-top: 20px;">&copy; 2025 Nita Byati. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Simple smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Update active nav link on scroll
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('nav a');
             
-            <div class="project-image">Project Overview Image</div>
-
-            <div class="project-section">
-                <h2>Project Overview</h2>
-                <p>The Denver Zoo ticket system needed a complete redesign to address visitor frustrations with confusing pricing, complex navigation, and lengthy checkout processes. This project focused on creating a streamlined, family-friendly experience that would reduce purchase time and improve overall visitor satisfaction.</p>
-            </div>
-
-            <div class="project-section">
-                <h3>The Challenge</h3>
-                <p>Visitors struggled with the existing ticket system due to confusing pricing tiers, unclear visit planning information, and a lengthy checkout process. The zoo needed a solution that would reduce wait times and improve the overall visitor experience from the first touchpoint.</p>
-                
-                <div class="project-image">Current System Analysis</div>
-            </div>
-
-            <div class="project-section">
-                <h3>Research & Discovery</h3>
-                <p>I conducted user interviews with zoo visitors and analyzed the current system to identify key pain points:</p>
-                
-                <ul>
-                    <li>Confusing ticket pricing and membership options</li>
-                    <li>Difficulty understanding what's included with admission</li>
-                    <li>Lack of clear visit planning information</li>
-                    <li>Complex checkout process for families with children</li>
-                </ul>
-
-                <div class="project-image">User Journey Mapping</div>
-            </div>
-
-            <div class="project-section">
-                <h3>Design Solution</h3>
-                <p>I redesigned the ticket purchasing flow with clear information hierarchy, simplified pricing presentation, and streamlined checkout. The new design prioritizes family-friendly navigation and transparent pricing.</p>
-                
-                <div class="project-image">New Design System</div>
-                <div class="project-image">User Flow & Wireframes</div>
-            </div>
-
-            <div class="project-section">
-                <h3>Key Features</h3>
-                <div class="highlight-stats">
-                    <div class="stats-grid">
-                        <div class="stat">
-                            <div class="stat-number">3</div>
-                            <div class="stat-label">Steps to Purchase</div>
-                        </div>
-                        <div class="stat">
-                            <div class="stat-number">Clear</div>
-                            <div class="stat-label">Pricing Display</div>
-                        </div>
-                        <div class="stat">
-                            <div class="stat-number">Mobile</div>
-                            <div class="stat-label">Optimized Design</div>
-                        </div>
-                        <div class="stat">
-                            <div class="stat-number">Family</div>
-                            <div class="stat-label">Friendly Interface</div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-image">Final Design Prototypes</div>
-            </div>
-
-            <div class="project-section">
-                <h3>Key Learnings</h3>
-                <p>This project highlighted the importance of understanding the specific context of family visits and time-sensitive decisions. The biggest improvements came from simplifying information presentation and reducing cognitive load during the purchasing process.</p>
-                <p>Testing with actual families revealed insights about decision-making patterns that weren't apparent in individual user interviews.</p>
-            </div>
-
-        </div>
-    </main>
-
-    <!-- Project Navigation -->
-    <nav class="project-nav">
-        <div class="container">
-            <a href="project-reduce-reuse.html" class="nav-link">← Previous: Reduce by Reuse</a>
-            <a href="index.html" class="nav-link">Back to Portfolio</a>
-            <a href="project-moving-poster.html" class="nav-link">Next: Moving Poster →</a>
-        </div>
-    </nav>
-
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                if (scrollY >= sectionTop) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
 </body>
 </html>
