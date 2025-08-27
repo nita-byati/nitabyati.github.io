@@ -3,16 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <title>Nita Byati - UX/UI Designer</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            font-family: 'Figtree', sans-serif;
         }
 
         body {
-            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            font-family: 'Figtree', 'Helvetica Neue', Helvetica, Arial, sans-serif;
             line-height: 1.6;
             color: #000;
             background-color: #fff;
@@ -28,6 +30,7 @@
         header {
             padding: 40px 0;
             border-bottom: 1px solid #eee;
+            background: #fff;
         }
 
         .header-content {
@@ -39,7 +42,12 @@
         .logo {
             font-size: 32px;
             font-weight: bold;
-            color: #B85B9C;
+            color: #db5292;
+            text-decoration: none;
+        }
+
+        .logo:hover {
+            color: #b84a7a;
         }
 
         nav ul {
@@ -56,7 +64,7 @@
         }
 
         nav a:hover, nav a.active {
-            color: #B85B9C;
+            color: #db5292;
         }
 
         /* Hero Section */
@@ -66,13 +74,14 @@
         }
 
         .hero h1 {
-            font-size: 48px;
-            font-weight: 300;
+            font-size: 64px;
+            font-weight: 700;
             margin-bottom: 20px;
+            color: #000;
         }
 
         .hero .highlight {
-            color: #B85B9C;
+            color: #db5292;
         }
 
         .hero p {
@@ -97,7 +106,7 @@
         }
 
         .btn-primary {
-            background: #B85B9C;
+            background: #db5292;
             color: white;
         }
 
@@ -126,10 +135,11 @@
         }
 
         .section h2 {
-            font-size: 36px;
-            font-weight: 300;
+            font-size: 48px;
+            font-weight: 700;
             margin-bottom: 20px;
             text-align: center;
+            color: #000;
         }
 
         .section-description {
@@ -226,7 +236,7 @@
         .skills h3 {
             font-size: 20px;
             margin-bottom: 15px;
-            color: #B85B9C;
+            color: #db5292;
         }
 
         .skills ul {
@@ -257,8 +267,69 @@
             background: #fff;
             color: #000;
             padding: 40px 0;
-            text-align: center;
             border-top: 1px solid #eee;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .footer-logo img {
+            height: 120px;
+            width: 120px;
+        }
+
+        .footer-center {
+            display: flex;
+            gap: 60px;
+            align-items: flex-start;
+        }
+
+        .footer-nav {
+            display: flex;
+            flex-direction: column;
+            list-style: none;
+            gap: 15px;
+            margin: 0;
+            padding: 0;
+        }
+
+        .footer-nav a {
+            color: #000;
+            text-decoration: none;
+            font-weight: 400;
+            transition: color 0.3s;
+        }
+
+        .footer-nav a:hover {
+            color: #db5292;
+        }
+
+        .footer-linkedin {
+            display: flex;
+            align-items: center;
+        }
+
+        .footer-linkedin .btn {
+            padding: 12px 24px;
+            background: #db5292;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .footer-linkedin .btn:hover {
+            background: #b84a7a;
+            transform: translateY(-2px);
         }
 
         .footer-content {
@@ -279,7 +350,7 @@
         }
 
         .social-links a:hover {
-            color: #B85B9C;
+            color: #db5292;
         }
 
         /* Mobile */
@@ -327,7 +398,9 @@
     <header>
         <div class="container">
             <div class="header-content">
-                <img src="images/logo.jpg" alt="Nita Byati logo" style="height: 40px;" />
+                <a href="#home">
+                    <img src="images/logo.jpg" alt="Nita Byati logo" style="height: 40px;" />
+                </a>
                 <nav>
                     <ul>
                         <li><a href="#home" class="active">Home</a></li>
@@ -358,8 +431,8 @@
             <h2>UX/UI Projects</h2>
             <p class="section-description">User-centered solutions that solve real problems</p>
             <div class="projects">
-                <a href="projects/project-denver-zoo.html" class="project">
-                    <div class="project-image"><img src="images/denverzoohero.png" alt="Denver Zoo Ticket System" style="width: 100%; height: 100%; object-fit: cover;" /></div>
+                <a href="projects/denverzooticket.html" class="project">
+                    <div class="project-image"><img src="images/denverzoologo.png" alt="Denver Zoo Ticket System" style="width: 100%; height: 100%; object-fit: contain; background: #f5f5f5;" /></div>
                     <div class="project-content">
                         <h3>Denver Zoo Ticket System Redesign</h3>
                         <p>Streamlined the ticket purchasing experience for visitors through improved user flow and interface design</p>
@@ -372,7 +445,7 @@
                 </a>
 
                 <a href="projects/project-reduce-reuse.html" class="project">
-                    <div class="project-image"><img src="images/updatedlogo.png" alt="Reduce by Reuse logo" style="width: 100%; height: 100%; object-fit: cover;" /></div>
+                    <div class="project-image" style="background: #000;"><video src="videos/nitabyatilab5.mp4" autoplay loop muted style="width: 100%; height: 100%; object-fit: contain;" /></div>
                     <div class="project-content">
                         <h3>Reduce by Reuse</h3>
                         <p>Sustainable living app promoting reuse and waste reduction through community-driven solutions</p>
@@ -394,7 +467,7 @@
             <p class="section-description">Visual communication that makes an impact</p>
             <div class="projects">
                 <a href="projects/project-moving-poster.html" class="project">
-                    <div class="project-image"><video src="videos/black kray.mov" autoplay loop muted style="width: 100%; height: 100%; object-fit: cover;" /></div>
+                    <div class="project-image"><video src="videos/black kray.mov" autoplay loop muted style="width: 100%; height: 100%; object-fit: cover; object-position: center 92%;" /></div>
                     <div class="project-content">
                         <h3>Moving Poster</h3>
                         <p>Dynamic poster design exploring movement and visual storytelling</p>
@@ -406,7 +479,7 @@
                 </a>
 
                 <a href="projects/project-bus-to-show.html" class="project">
-                    <div class="project-image"><img src="images/BTS_LOGO-orange-with-transparent-background-hi-res.png" alt="Bus to Show Logo" style="width: 100%; height: 100%; object-fit: cover;" /></div>
+                    <div class="project-image"><img src="images/BTS_LOGO-orange-with-transparent-background-hi-res.png" alt="Bus to Show Logo" style="width: 100%; height: 100%; object-fit: contain; background: #f5f5f5;" /></div>
                     <div class="project-content">
                         <h3>Bus to Show Informational Posters</h3>
                         <p>Informational poster series designed to guide and inform audiences</p>
@@ -418,7 +491,7 @@
                 </a>
 
                 <a href="projects/project-eyce-font.html" class="project">
-                    <div class="project-image"><img src="images/eyce.jpg" alt="Eyce Font Display" style="width: 100%; height: 100%; object-fit: cover;" /></div>
+                    <div class="project-image"><img src="images/font hero.png" alt="Eyce Font Display" style="width: 100%; height: 100%; object-position: center center; background: #fff;" /></div>
                     <div class="project-content">
                         <h3>Font - "Eyce"</h3>
                         <p>Custom typeface design exploring unique letterforms and character</p>
@@ -442,7 +515,7 @@
                 </a>
 
                 <a href="projects/project-murder-mystery.html" class="project">
-                    <div class="project-image"><img src="images/murdermyster.png" alt="Murder Mystery Design" style="width: 100%; height: 100%; object-fit: cover;" /></div>
+                    <div class="project-image"><img src="images/murdermyster.png" alt="Murder Mystery Design" style="width: 100%; height: 100%; object-fit: cover; object-position: center 13.25%;" /></div>
                     <div class="project-content">
                         <h3>Murder Mystery</h3>
                         <p>Visual identity and promotional materials for mystery entertainment</p>
@@ -486,7 +559,8 @@
                     <h2>About Me</h2>
                     <p>I'm a UX/UI designer with a passion for creating meaningful digital experiences. My background in graphic design gives me a unique perspective on visual communication, while my UX training ensures every design decision is grounded in user research and testing.</p>
                     <p>I believe great design is invisible – it solves problems so elegantly that users don't have to think about it. My approach combines strategic thinking, creative problem-solving, and attention to detail.</p>
-                    
+                </div>
+                <div class="about-visual">
                     <div class="skills">
                         <h3>Skills & Tools</h3>
                         <ul>
@@ -499,10 +573,7 @@
                         </ul>
                     </div>
 
-                    <a href="www.linkedin.com/in/nita-byati" class="btn btn-primary">Linkedin</a>
-                </div>
-                <div class="about-visual">
-                    <div class="profile-placeholder">Your Profile Image</div>
+                    <a href="http://www.linkedin.com/in/nita-byati" class="btn btn-primary" target="_blank">LinkedIn</a>
                 </div>
             </div>
         </div>
@@ -512,11 +583,24 @@
     <footer>
         <div class="container">
             <div class="footer-content">
-                <img src="images/logo.jpg" alt="Nita Byati logo" style="height: 40px;" />
-
-              
+                <div class="footer-logo">
+                    <img src="images/logo.jpg" alt="Nita Byati logo" />
+                </div>
+                <div class="footer-center">
+                    <ul class="footer-nav">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                    </ul>
+                    <ul class="footer-nav">
+                        <li><a href="#ux-ui">UX/UI Design</a></li>
+                        <li><a href="#graphic-design">Graphic Design</a></li>
+                        <li><a href="#animation">Animation</a></li>
+                    </ul>
+                </div>
+                <div class="footer-linkedin">
+                    <a href="http://www.linkedin.com/in/nita-byati" class="btn" target="_blank">LinkedIn</a>
+                </div>
             </div>
-            <p style="margin-top: 20px;">&copy; 2025 Nita Byati. All rights reserved.</p>
         </div>
     </footer>
 
@@ -555,6 +639,6 @@
                 }
             });
         });
-    </script>
-</body>
-</html>
+          </script>
+  </body>
+  </html>

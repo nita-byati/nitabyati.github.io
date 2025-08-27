@@ -3,16 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <title>Moving Poster - Nita Byati</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            font-family: 'Figtree', sans-serif;
         }
 
         body {
-            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            font-family: 'Figtree', 'Helvetica Neue', Helvetica, Arial, sans-serif;
             line-height: 1.6;
             color: #000;
             background-color: #fff;
@@ -27,6 +29,7 @@
         header {
             padding: 40px 0;
             border-bottom: 1px solid #eee;
+            background: #fff;
         }
 
         .header-content {
@@ -49,13 +52,13 @@
         }
 
         nav a:hover {
-            color: #B85B9C;
+            color: #db5292;
         }
 
         .back-link {
             display: inline-block;
             margin: 40px 0 20px;
-            color: #B85B9C;
+            color: #db5292;
             text-decoration: none;
             font-weight: 500;
         }
@@ -71,7 +74,7 @@
 
         .project-header h1 {
             font-size: 48px;
-            font-weight: 300;
+            font-weight: 700;
             margin-bottom: 20px;
         }
 
@@ -101,16 +104,25 @@
 
         .project-content h2 {
             font-size: 32px;
-            font-weight: 300;
+            font-weight: 700;
             margin-bottom: 20px;
-            color: #B85B9C;
+            color: #000;
         }
 
         .project-content h3 {
-            font-size: 24px;
-            font-weight: 400;
+            font-size: 32px;
+            font-weight: 700;
             margin-bottom: 15px;
             margin-top: 30px;
+            color: #000;
+        }
+
+        .project-content h4 {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            margin-top: 25px;
+            color: #000;
         }
 
         .project-content p {
@@ -135,11 +147,73 @@
         }
 
         footer {
-            background: #000;
-            color: white;
+            background: #fff;
+            color: #000;
             padding: 40px 0;
-            text-align: center;
+            border-top: 1px solid #eee;
             margin-top: 60px;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .footer-logo img {
+            height: 120px;
+            width: 120px;
+        }
+
+        .footer-center {
+            display: flex;
+            gap: 60px;
+            align-items: flex-start;
+        }
+
+        .footer-nav {
+            display: flex;
+            flex-direction: column;
+            list-style: none;
+            gap: 15px;
+            margin: 0;
+            padding: 0;
+        }
+
+        .footer-nav a {
+            color: #000;
+            text-decoration: none;
+            font-weight: 400;
+            transition: color 0.3s;
+        }
+
+        .footer-nav a:hover {
+            color: #db5292;
+        }
+
+        .footer-linkedin {
+            display: flex;
+            align-items: center;
+        }
+
+        .footer-linkedin .btn {
+            padding: 12px 24px;
+            background: #db5292;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .footer-linkedin .btn:hover {
+            background: #b84a7a;
+            transform: translateY(-2px);
         }
     </style>
 </head>
@@ -147,7 +221,9 @@
     <header>
         <div class="container">
             <div class="header-content">
-                <img src="../images/logo.jpg" alt="Nita Byati logo" style="height: 40px;" />
+                <a href="../index.html">
+                    <img src="../images/logo.jpg" alt="Nita Byati logo" style="height: 40px;" />
+                </a>
                 <nav>
                     <ul>
                         <li><a href="../index.html">Home</a></li>
@@ -202,7 +278,25 @@
 
     <footer>
         <div class="container">
-            <p>&copy; 2024 Nita Byati. All rights reserved.</p>
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="../images/logo.jpg" alt="Nita Byati logo" />
+                </div>
+                <div class="footer-center">
+                    <ul class="footer-nav">
+                        <li><a href="../index.html#home">Home</a></li>
+                        <li><a href="../index.html#about">About</a></li>
+                    </ul>
+                    <ul class="footer-nav">
+                        <li><a href="../index.html#ux-ui">UX/UI Design</a></li>
+                        <li><a href="../index.html#graphic-design">Graphic Design</a></li>
+                        <li><a href="../index.html#animation">Animation</a></li>
+                    </ul>
+                </div>
+                <div class="footer-linkedin">
+                    <a href="http://www.linkedin.com/in/nita-byati" class="btn" target="_blank">LinkedIn</a>
+                </div>
+            </div>
         </div>
     </footer>
 </body>

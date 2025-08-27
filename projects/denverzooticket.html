@@ -3,329 +3,844 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <title>Denver Zoo Ticket System Redesign - Nita Byati</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            font-family: 'Figtree', sans-serif;
         }
 
         body {
-            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            font-family: 'Figtree', 'Helvetica Neue', Helvetica, Arial, sans-serif;
             line-height: 1.6;
             color: #000;
             background-color: #fff;
         }
 
         .container {
-            max-width: 800px;
+            max-width: 1200px;
             margin: 0 auto;
             padding: 0 40px;
         }
 
-        /* Header */
         header {
-            padding: 20px 0;
+            padding: 40px 0;
             border-bottom: 1px solid #eee;
+            background: #fff;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #000;
+            font-weight: 400;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #db5292;
         }
 
         .back-link {
-            color: #B85B9C;
+            display: inline-block;
+            margin: 40px 0 20px;
+            color: #db5292;
             text-decoration: none;
-            font-size: 16px;
+            font-weight: 500;
         }
 
         .back-link:hover {
             text-decoration: underline;
         }
 
-        /* Project Hero */
-        .project-hero {
-            padding: 60px 0;
+        .project-header {
             text-align: center;
+            padding: 40px 0;
         }
 
-        .project-hero h1 {
-            font-size: 42px;
-            font-weight: 300;
+        .project-header h1 {
+            font-size: 48px;
+            font-weight: 700;
             margin-bottom: 20px;
-        }
-
-        .project-hero p {
-            font-size: 20px;
-            color: #666;
-            margin-bottom: 40px;
-        }
-
-        .project-meta {
-            display: flex;
-            justify-content: center;
-            gap: 60px;
-            margin-bottom: 40px;
-        }
-
-        .meta-item {
-            text-align: center;
-        }
-
-        .meta-label {
-            font-size: 12px;
-            color: #B85B9C;
-            font-weight: 600;
-            text-transform: uppercase;
-            margin-bottom: 5px;
-        }
-
-        .meta-value {
-            font-size: 16px;
             color: #000;
         }
 
-        /* Content */
+        .project-header p {
+            font-size: 20px;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .team-composition {
+            text-align: center;
+            padding: 30px 0;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .team-composition h3 {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: #000;
+        }
+
+        .team-composition p {
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .team-composition ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .team-composition li {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 10px;
+            padding: 8px 0;
+        }
+
+        .team-composition strong {
+            color: #000;
+        }
+
+        .hero-image {
+            width: 100%;
+            margin: 40px 0;
+            text-align: center;
+        }
+
+        .hero-image img {
+            max-width: 80%;
+            height: auto;
+        }
+
         .project-content {
+            max-width: 800px;
+            margin: 0 auto;
             padding: 40px 0;
+        }
+
+        .project-content h2 {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #000;
+        }
+
+        .project-content h3 {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            margin-top: 30px;
+            color: #000;
+        }
+
+        .project-content h4 {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            margin-top: 25px;
+            color: #000;
+        }
+
+        .project-content p {
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 30px 0;
+        }
+
+        .tag {
+            background: #f0f0f0;
+            color: #666;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 14px;
         }
 
         .project-image {
             width: 100%;
-            height: 400px;
+            height: 300px;
             background: #f5f5f5;
             border-radius: 10px;
             display: flex;
             align-items: center;
             justify-content: center;
             color: #999;
-            font-size: 18px;
-            margin: 40px 0;
-        }
-
-        .project-section {
-            margin-bottom: 50px;
-        }
-
-        .project-section h2 {
-            font-size: 32px;
-            font-weight: 300;
-            margin-bottom: 20px;
-            color: #000;
-        }
-
-        .project-section h3 {
-            font-size: 24px;
-            font-weight: 400;
-            margin-bottom: 15px;
-            color: #B85B9C;
-        }
-
-        .project-section p {
-            font-size: 18px;
-            color: #666;
-            margin-bottom: 20px;
-            line-height: 1.8;
-        }
-
-        .project-section ul {
-            margin: 20px 0;
-            padding-left: 20px;
-        }
-
-        .project-section li {
-            margin-bottom: 10px;
-            color: #666;
             font-size: 16px;
+            margin: 30px 0;
+            border: 2px dashed #ddd;
         }
 
-        .highlight-stats {
-            background: #fafafa;
-            padding: 30px;
-            border-radius: 10px;
+        /* Carousel Styles */
+        .carousel-container {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 30px 0;
+            width: 100%;
+        }
+
+        .carousel {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            width: 100%;
+            justify-content: center;
+            align-items: center;
+            min-height: 400px;
+        }
+
+        .carousel img {
+            width: 60%;
+            height: auto;
+            flex-shrink: 0;
+            display: none;
+            margin: 0 auto;
+        }
+
+        .carousel img.active {
+            display: block;
+        }
+
+        .carousel-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 20px;
+            z-index: 10;
+            transition: background 0.3s;
+            pointer-events: auto;
+        }
+
+        .carousel-arrow:hover {
+            background: rgba(0, 0, 0, 0.7);
+        }
+
+        .carousel-arrow.prev {
+            left: 20px;
+        }
+
+        .carousel-arrow.next {
+            right: 20px;
+        }
+
+        .carousel-indicators {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #ddd;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .indicator.active {
+            background: #db5292;
+        }
+
+        .wireframes-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
             margin: 30px 0;
         }
 
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
+        .wireframes-grid .project-image {
+            margin: 0;
         }
 
-        .stat {
-            text-align: center;
+        .clickable-image {
+            cursor: pointer;
+            transition: transform 0.2s ease;
+            border-radius: 10px;
+            width: 360px;
+            height: 360px;
+            object-fit: contain;
         }
 
-        .stat-number {
-            font-size: 32px;
+        .clickable-image:hover {
+            transform: scale(1.05);
+        }
+
+        .image-popup {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            cursor: pointer;
+        }
+
+        .image-popup img {
+            max-width: 60%;
+            max-height: 60%;
+            margin: auto;
+            display: block;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border-radius: 10px;
+        }
+
+        .close-popup {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: #fff;
+            font-size: 40px;
             font-weight: bold;
-            color: #B85B9C;
-            margin-bottom: 5px;
+            cursor: pointer;
         }
 
-        .stat-label {
-            font-size: 14px;
-            color: #666;
+        .btn-linkedin-style {
+            display: inline-block;
+            padding: 12px 24px;
+            background: #db5292;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 500;
+            transition: all 0.3s;
+            margin: 20px 0;
         }
 
-        /* Navigation */
-        .project-nav {
+        .btn-linkedin-style:hover {
+            background: #b84a7a;
+            transform: translateY(-2px);
+        }
+
+        /* Carousel Styles */
+        .carousel-container {
+            position: relative;
             display: flex;
-            justify-content: space-between;
             align-items: center;
+            justify-content: center;
+            margin: 30px 0;
+            width: 100%;
+        }
+
+        .carousel {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            width: 100%;
+        }
+
+        .carousel img {
+            width: 60%;
+            height: auto;
+            flex-shrink: 0;
+            display: none;
+            margin: 0 auto;
+        }
+
+        .carousel img.active {
+            display: block;
+        }
+
+        .carousel-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 20px;
+            z-index: 10;
+            transition: background 0.3s;
+        }
+
+        .carousel-arrow:hover {
+            background: rgba(0, 0, 0, 0.7);
+        }
+
+        .carousel-arrow.prev {
+            left: 20px;
+        }
+
+        .carousel-arrow.next {
+            right: 20px;
+        }
+
+        .carousel-indicators {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #ddd;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .indicator.active {
+            background: #db5292;
+        }
+
+        .presentation-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin: 30px 0;
+            align-items: flex-start;
+        }
+
+        .presentation-buttons .btn-linkedin-style {
+            margin: 0;
+            min-width: 300px;
+            text-align: left;
+        }
+
+        footer {
+            background: #fff;
+            color: #000;
             padding: 40px 0;
             border-top: 1px solid #eee;
             margin-top: 60px;
         }
 
-        .nav-link {
-            color: #B85B9C;
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .footer-logo img {
+            height: 120px;
+            width: 120px;
+        }
+
+        .footer-center {
+            display: flex;
+            gap: 60px;
+            align-items: flex-start;
+        }
+
+        .footer-nav {
+            display: flex;
+            flex-direction: column;
+            list-style: none;
+            gap: 15px;
+            margin: 0;
+            padding: 0;
+        }
+
+        .footer-nav a {
+            color: #000;
             text-decoration: none;
+            font-weight: 400;
+            transition: color 0.3s;
+        }
+
+        .footer-nav a:hover {
+            color: #db5292;
+        }
+
+        .footer-linkedin {
+            display: flex;
+            align-items: center;
+        }
+
+        .footer-linkedin .btn {
+            padding: 12px 24px;
+            background: #db5292;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
             font-weight: 500;
+            transition: all 0.3s;
         }
 
-        .nav-link:hover {
-            text-decoration: underline;
-        }
-
-        /* Mobile */
-        @media (max-width: 768px) {
-            .container {
-                padding: 0 20px;
-            }
-
-            .project-hero h1 {
-                font-size: 32px;
-            }
-
-            .project-meta {
-                flex-direction: column;
-                gap: 20px;
-            }
-
-            .stats-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .project-nav {
-                flex-direction: column;
-                gap: 20px;
-                text-align: center;
-            }
+        .footer-linkedin .btn:hover {
+            background: #b84a7a;
+            transform: translateY(-2px);
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
     <header>
         <div class="container">
-            <a href="index.html" class="back-link">← Back to Portfolio</a>
+            <div class="header-content">
+                <a href="../index.html">
+                    <img src="../images/logo.jpg" alt="Nita Byati logo" style="height: 40px;" />
+                </a>
+                <nav>
+                    <ul>
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="../index.html#ux-ui">UX/UI</a></li>
+                        <li><a href="../index.html#graphic-design">Graphic Design</a></li>
+                        <li><a href="../index.html#animation">Animation</a></li>
+                        <li><a href="../index.html#about">About</a></li>
+                    </ul>
+                </nav>
+            </div>
         </div>
     </header>
 
-    <!-- Project Hero -->
-    <section class="project-hero">
-        <div class="container">
+    <div class="container">
+        <a href="../index.html#ux-ui" class="back-link">← Back to Projects</a>
+        
+        <div class="project-header">
             <h1>Denver Zoo Ticket System Redesign</h1>
-            <p>Streamlining the ticket purchasing experience for zoo visitors</p>
+            <p>Streamlining the ticket purchasing experience for zoo visitors
+            </p>
+        </div>
+
+        <div class="team-composition">
+            <h3>Team Composition</h3>
+            <p>This was an individual project.</p>
+            <ul>
+                <li><strong>UX/UI Design:</strong> Nita Byati</li>
             
-            <div class="project-meta">
-                <div class="meta-item">
-                    <div class="meta-label">Duration</div>
-                    <div class="meta-value">4 weeks</div>
-                </div>
-                <div class="meta-item">
-                    <div class="meta-label">Role</div>
-                    <div class="meta-value">UX/UI Designer</div>
-                </div>
-                <div class="meta-item">
-                    <div class="meta-label">Team</div>
-                    <div class="meta-value">Individual Project</div>
-                </div>
-            </div>
+            </ul>
         </div>
-    </section>
 
-    <!-- Project Content -->
-    <main class="project-content">
-        <div class="container">
+        <div class="hero-image">
+            <img src="../images/denverzoohero.png" alt="denver zoo">
+        </div>
+
+        <div class="project-content">
+            <div class="tags">
+                <span class="tag">Sustainability</span>
+                <span class="tag">Mobile Design</span>
+                <span class="tag">Community Features</span>
+                <span class="tag">UX/UI Design</span>
+                <span class="tag">Marketing</span>
+            </div>
+
+            <h2>Overview</h2>
+            <p>For this project, I redesigned the UX for the Denver Zoo's ticket system. I focused on optimizing efficiency based on user input.
+            </p>
+
+            <h3>Challenge</h3>
+            <p>The Denver Zoo ticket system needed a complete redesign to address visitor frustrations with confusing pricing, complex navigation, and lengthy checkout processes. This project focused on creating a streamlined, family-friendly experience that would reduce purchase time and improve overall visitor satisfaction.
+            </p>
+
+            <h4>Research</h4>
+            <p>Before I began the process on Figma, I conducted multiple user tests which tested the current ticket system. I evaluated what made the user mad, happy, and satisfied. I wanted to get rid of whatever made the user unsatisfied with the experience. This was mainly the amount of pages you had to go through.  </p>
             
-            <div class="project-image">Project Overview Image</div>
 
-            <div class="project-section">
-                <h2>Project Overview</h2>
-                <p>The Denver Zoo's current ticket purchasing system created friction for visitors, leading to long lines and frustration. This project focused on redesigning the digital ticket purchasing experience to be more intuitive and efficient for families and zoo visitors.</p>
-            </div>
+            <h4>Competitive analysis            </h4>
+            <p>I analyzed 3 zoo websites comparing the UX.</p>
+            
+          
 
-            <div class="project-section">
-                <h3>The Challenge</h3>
-                <p>Visitors struggled with the existing ticket system due to confusing pricing tiers, unclear visit planning information, and a lengthy checkout process. The zoo needed a solution that would reduce wait times and improve the overall visitor experience from the first touchpoint.</p>
-                
-                <div class="project-image">Current System Analysis</div>
-            </div>
+            <h4>How might we statement            </h4>
+            <p>How might we reduce the amount of pages while maximizing efficiency for the user?</p>
+            
 
-            <div class="project-section">
-                <h3>Research & Discovery</h3>
-                <p>I conducted user interviews with zoo visitors and analyzed the current system to identify key pain points:</p>
-                
-                <ul>
-                    <li>Confusing ticket pricing and membership options</li>
-                    <li>Difficulty understanding what's included with admission</li>
-                    <li>Lack of clear visit planning information</li>
-                    <li>Complex checkout process for families with children</li>
-                </ul>
-
-                <div class="project-image">User Journey Mapping</div>
-            </div>
-
-            <div class="project-section">
-                <h3>Design Solution</h3>
-                <p>I redesigned the ticket purchasing flow with clear information hierarchy, simplified pricing presentation, and streamlined checkout. The new design prioritizes family-friendly navigation and transparent pricing.</p>
-                
-                <div class="project-image">New Design System</div>
-                <div class="project-image">User Flow & Wireframes</div>
-            </div>
-
-            <div class="project-section">
-                <h3>Key Features</h3>
-                <div class="highlight-stats">
-                    <div class="stats-grid">
-                        <div class="stat">
-                            <div class="stat-number">3</div>
-                            <div class="stat-label">Steps to Purchase</div>
-                        </div>
-                        <div class="stat">
-                            <div class="stat-number">Clear</div>
-                            <div class="stat-label">Pricing Display</div>
-                        </div>
-                        <div class="stat">
-                            <div class="stat-number">Mobile</div>
-                            <div class="stat-label">Optimized Design</div>
-                        </div>
-                        <div class="stat">
-                            <div class="stat-number">Family</div>
-                            <div class="stat-label">Friendly Interface</div>
-                        </div>
-                    </div>
+            <h3>Design</h3>
+            <p>Users need less pages for the add-ons because it is tedious and made users mad.            </p>
+            <h3>User flow</h3>
+            <img src="../denverzoo/userflow.png" alt="User Flow Diagram - Ticket Purchase Process" class="clickable-image" onclick="openImagePopup(this.src)">
+            <h3>Low-fidelity wireframe</h3>
+            <p>I created low fidelity wireframes that gave a rough idea on how I want to reduce pages.</p>
+            
+            <div class="carousel-container">
+                <button class="carousel-arrow prev">‹</button>
+                <div class="carousel">
+                    <img src="../denverzoo/lf1.png" alt="Low-fidelity Wireframe 1 - Homepage Layout" class="active">
+                    <img src="../denverzoo/lf2.png" alt="Low-fidelity Wireframe 2 - Ticket Selection & Calendar">
+                    <img src="../denverzoo/lf3.png" alt="Low-fidelity Wireframe 3 - Zoo Admission Details">
+                    <img src="../denverzoo/lf4.png" alt="Low-fidelity Wireframe 4 - Shopping Cart">
                 </div>
-
-                <div class="project-image">Final Design Prototypes</div>
+                <button class="carousel-arrow next">›</button>
+            </div>
+            <div class="carousel-indicators">
+                <span class="indicator active"></span>
+                <span class="indicator"></span>
+                <span class="indicator"></span>
+                <span class="indicator"></span>
             </div>
 
-            <div class="project-section">
-                <h3>Key Learnings</h3>
-                <p>This project highlighted the importance of understanding the specific context of family visits and time-sensitive decisions. The biggest improvements came from simplifying information presentation and reducing cognitive load during the purchasing process.</p>
-                <p>Testing with actual families revealed insights about decision-making patterns that weren't apparent in individual user interviews.</p>
+                    <h3>Mid-fidelity wireframes</h3>
+        <div class="carousel-container">
+            <button class="carousel-arrow prev">‹</button>
+            <div class="carousel">
+                <img src="../denverzoo/mf1.png" alt="Mid-fidelity wireframe 1" class="active">
+                <img src="../denverzoo/mf2.png" alt="Mid-fidelity wireframe 2">
+                <img src="../denverzoo/mf3.png" alt="Mid-fidelity wireframe 3">
+                <img src="../denverzoo/mf4.png" alt="Mid-fidelity wireframe 4">
             </div>
-
+            <button class="carousel-arrow next">›</button>
         </div>
-    </main>
+        <div class="carousel-indicators">
+            <span class="indicator active"></span>
+            <span class="indicator"></span>
+            <span class="indicator"></span>
+            <span class="indicator"></span>
+        </div>
+        
+            <h3>High-fidelity wireframes
+            </h3>
+            <p>After testing my mid fidelity numerous times, I made a better version that optimizes functionality and design. </p>
 
-    <!-- Project Navigation -->
-    <nav class="project-nav">
+            <div class="carousel-container">
+                <button class="carousel-arrow prev">‹</button>
+                <div class="carousel">
+                    <img src="../denverzoo/hf1.png" alt="High-fidelity wireframe 1" class="active">
+                    <img src="../denverzoo/hf2.png" alt="High-fidelity wireframe 2">
+                    <img src="../denverzoo/hf3.png" alt="High-fidelity wireframe 3">
+                    <img src="../denverzoo/hf4.png" alt="High-fidelity wireframe 4">
+                </div>
+                <button class="carousel-arrow next">›</button>
+            </div>
+            <div class="carousel-indicators">
+                <span class="indicator active"></span>
+                <span class="indicator"></span>
+                <span class="indicator"></span>
+                <span class="indicator"></span>
+            </div>
+            
+            <div class="figma-embed" style="margin: 40px 0; text-align: center;">
+                <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="https://embed.figma.com/design/cXvkikh3n7EoCg4vpnwz6o/Nita-Byati-UX1-2024-Figma-file?node-id=5-348&embed-host=share" allowfullscreen></iframe>
+            </div>
+
+            <h3>Evaluation and results</h3>
+           <p> <p>I tested 3 people using my first iteration of high fidelity with a rough prototype. I wanted to make sure my problem statement was solved, as well as weed out issues I didn't spot. I found that not having a clear "buy tickets" button was a problem and that the calandar page system seemed tedious.</p>
+            
+            <h4>Updates</h4>
+            <p>To fix these issues, I added a large button on the homepage labeled "buy tickets". I also changed my calendar system from a scroll to an actual calendar view.​​​​​​​</p>
+                        
+            <h3>Future plans
+            </h3>
+            <p>My next steps would be to find another case. This is my first official UX project so I plan to bring these fresh skills to my next project. In the future, I will probably do UX faster as I have some experience now.            </p>
+            
+
+            <h3>Conclusion 
+            </h3>
+            <p>I learned so much doing this project. All the UX guidelines and tips are big takeaways. I also learned time management a little better with this project. </p>
+
+          
+
+          
+    </div>
+
+    <footer>
         <div class="container">
-            <a href="project-reduce-reuse.html" class="nav-link">← Previous: Reduce by Reuse</a>
-            <a href="index.html" class="nav-link">Back to Portfolio</a>
-            <a href="project-moving-poster.html" class="nav-link">Next: Moving Poster →</a>
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="../images/logo.jpg" alt="Nita Byati logo" />
+                </div>
+                <div class="footer-center">
+                    <ul class="footer-nav">
+                        <li><a href="../index.html#home">Home</a></li>
+                        <li><a href="../index.html#about">About</a></li>
+                    </ul>
+                    <ul class="footer-nav">
+                        <li><a href="../index.html#ux-ui">UX/UI Design</a></li>
+                        <li><a href="../index.html#graphic-design">Graphic Design</a></li>
+                        <li><a href="../index.html#animation">Animation</a></li>
+                    </ul>
+                </div>
+                <div class="footer-linkedin">
+                    <a href="http://www.linkedin.com/in/nita-byati" class="btn" target="_blank">LinkedIn</a>
+                </div>
+            </div>
         </div>
-    </nav>
+    </footer>
 
+    <!-- Image Popup -->
+    <div id="imagePopup" class="image-popup" onclick="closeImagePopup()">
+        <span class="close-popup">&times;</span>
+        <img id="popupImage" src="" alt="Expanded Image">
+    </div>
+
+    <script>
+        function openImagePopup(imageSrc) {
+            document.getElementById('popupImage').src = imageSrc;
+            document.getElementById('imagePopup').style.display = 'block';
+        }
+
+        // Carousel functionality for multiple carousels
+        const carousels = document.querySelectorAll('.carousel-container');
+        
+        carousels.forEach((carousel, carouselIndex) => {
+            const slides = carousel.querySelectorAll('.carousel img');
+            const indicators = carousel.querySelectorAll('.indicator');
+            let currentSlide = 0;
+            
+            // Initialize first slide as active
+            if (slides.length > 0) {
+                slides[0].classList.add('active');
+                if (indicators.length > 0) {
+                    indicators[0].classList.add('active');
+                }
+            }
+            
+            // Add event listeners to arrows
+            const prevBtn = carousel.querySelector('.carousel-arrow.prev');
+            const nextBtn = carousel.querySelector('.carousel-arrow.next');
+            
+            if (prevBtn) {
+                prevBtn.onclick = () => changeSlide(-1, carouselIndex);
+            }
+            if (nextBtn) {
+                nextBtn.onclick = () => changeSlide(1, carouselIndex);
+            }
+            
+            // Add event listeners to indicators
+            indicators.forEach((indicator, index) => {
+                indicator.onclick = () => goToSlide(index, carouselIndex);
+            });
+        });
+
+        function showSlide(index, carouselIndex) {
+            const carousel = carousels[carouselIndex];
+            const slides = carousel.querySelectorAll('.carousel img');
+            const indicators = carousel.querySelectorAll('.indicator');
+            
+            // Remove active class from all slides and indicators in this carousel
+            slides.forEach(slide => slide.classList.remove('active'));
+            indicators.forEach(indicator => indicator.classList.remove('active'));
+            
+            // Add active class to current slide and indicator
+            if (slides[index]) slides[index].classList.add('active');
+            if (indicators[index]) indicators[index].classList.add('active');
+        }
+
+        function changeSlide(direction, carouselIndex) {
+            const carousel = carousels[carouselIndex];
+            const slides = carousel.querySelectorAll('.carousel img');
+            let currentSlide = 0;
+            
+            // Find current active slide
+            slides.forEach((slide, index) => {
+                if (slide.classList.contains('active')) {
+                    currentSlide = index;
+                }
+            });
+            
+            currentSlide += direction;
+            
+            if (currentSlide >= slides.length) {
+                currentSlide = 0;
+            } else if (currentSlide < 0) {
+                currentSlide = slides.length - 1;
+            }
+            
+            showSlide(currentSlide, carouselIndex);
+        }
+
+        function goToSlide(index, carouselIndex) {
+            showSlide(index, carouselIndex);
+        }
+
+        // Optional: Add keyboard navigation for carousel
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'ArrowLeft') {
+                changeSlide(-1);
+            } else if (e.key === 'ArrowRight') {
+                changeSlide(1);
+            }
+        });
+
+        function openVideoPopup(videoSrc) {
+            // Create video element for popup
+            const popup = document.getElementById('imagePopup');
+            const popupImg = document.getElementById('popupImage');
+            
+            // Replace img with video for video popups
+            if (videoSrc.includes('.mov')) {
+                popupImg.style.display = 'none';
+                let video = popup.querySelector('video');
+                if (!video) {
+                    video = document.createElement('video');
+                    video.src = videoSrc;
+                    video.controls = true;
+                    video.autoplay = true;
+                    video.loop = true;
+                    video.muted = true;
+                    video.style.cssText = popupImg.style.cssText;
+                    popup.appendChild(video);
+                } else {
+                    video.src = videoSrc;
+                }
+                video.style.display = 'block';
+            } else {
+                // For images, show the img element
+                popupImg.style.display = 'block';
+                popupImg.src = videoSrc;
+            }
+            
+            popup.style.display = 'block';
+        }
+
+        function closeImagePopup() {
+            const popup = document.getElementById('imagePopup');
+            const popupImg = document.getElementById('popupImage');
+            const video = popup.querySelector('video');
+            
+            popup.style.display = 'none';
+            
+            // Hide both image and video when closing
+            if (popupImg) popupImg.style.display = 'none';
+            if (video) video.style.display = 'none';
+        }
+
+        // Close popup when pressing Escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeImagePopup();
+            }
+        });
+    </script>
 </body>
 </html>
