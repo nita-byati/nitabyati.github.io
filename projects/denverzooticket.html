@@ -201,28 +201,26 @@
         /* Carousel Styles */
         .carousel-container {
             position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            display: block;
             margin: 30px 0;
             width: 100%;
+            text-align: center;
         }
 
         .carousel {
             display: flex;
-            transition: transform 0.5s ease-in-out;
+            overflow: hidden;
             width: 100%;
-            justify-content: center;
-            align-items: center;
-            min-height: 400px;
+            max-width: 800px;
+            position: relative;
+            margin: 0 auto;
         }
 
         .carousel img {
-            width: 60%;
+            width: 100%;
             height: auto;
-            flex-shrink: 0;
             display: none;
-            margin: 0 auto;
+            transition: opacity 0.3s ease;
         }
 
         .carousel img.active {
@@ -233,29 +231,30 @@
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            background: rgba(0, 0, 0, 0.5);
-            color: white;
+            background: rgba(255, 255, 255, 0.9);
             border: none;
-            width: 50px;
-            height: 50px;
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
-            cursor: pointer;
             font-size: 20px;
+            cursor: pointer;
             z-index: 10;
-            transition: background 0.3s;
-            pointer-events: auto;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
         }
 
         .carousel-arrow:hover {
-            background: rgba(0, 0, 0, 0.7);
+            background: rgba(255, 255, 255, 1);
+            transform: translateY(-50%) scale(1.1);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
         }
 
         .carousel-arrow.prev {
-            left: 20px;
+            left: 10px;
         }
 
         .carousel-arrow.next {
-            right: 20px;
+            right: 10px;
         }
 
         .carousel-indicators {
@@ -271,11 +270,28 @@
             border-radius: 50%;
             background: #ddd;
             cursor: pointer;
-            transition: background 0.3s;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .indicator:hover {
+            background: #bbb;
+            border-color: #db5292;
+            transform: scale(1.1);
         }
 
         .indicator.active {
             background: #db5292;
+            border-color: #db5292;
+            box-shadow: 0 2px 8px rgba(219, 82, 146, 0.4);
+        }
+
+        /* Specific styling for mf1 image */
+        .carousel img[src*="mf1.png"] {
+            width: 70%;
+            height: auto;
+            margin: 0 auto;
         }
 
         .wireframes-grid {
@@ -351,82 +367,6 @@
         .btn-linkedin-style:hover {
             background: #b84a7a;
             transform: translateY(-2px);
-        }
-
-        /* Carousel Styles */
-        .carousel-container {
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 30px 0;
-            width: 100%;
-        }
-
-        .carousel {
-            display: flex;
-            transition: transform 0.5s ease-in-out;
-            width: 100%;
-        }
-
-        .carousel img {
-            width: 60%;
-            height: auto;
-            flex-shrink: 0;
-            display: none;
-            margin: 0 auto;
-        }
-
-        .carousel img.active {
-            display: block;
-        }
-
-        .carousel-arrow {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background: rgba(0, 0, 0, 0.5);
-            color: white;
-            border: none;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            cursor: pointer;
-            font-size: 20px;
-            z-index: 10;
-            transition: background 0.3s;
-        }
-
-        .carousel-arrow:hover {
-            background: rgba(0, 0, 0, 0.7);
-        }
-
-        .carousel-arrow.prev {
-            left: 20px;
-        }
-
-        .carousel-arrow.next {
-            right: 20px;
-        }
-
-        .carousel-indicators {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            margin-top: 20px;
-        }
-
-        .indicator {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: #ddd;
-            cursor: pointer;
-            transition: background 0.3s;
-        }
-
-        .indicator.active {
-            background: #db5292;
         }
 
         .presentation-buttons {
@@ -545,10 +485,10 @@
 
         <div class="team-composition">
             <h3>Team Composition</h3>
-            <p>This was an individual project.</p>
             <ul>
                 <li><strong>UX/UI Design:</strong> Nita Byati</li>
-            
+                <li><strong>Research:</strong> Nita Byati</li>
+
             </ul>
         </div>
 
@@ -602,12 +542,12 @@
                     <img src="../denverzoo/lf4.png" alt="Low-fidelity Wireframe 4 - Shopping Cart">
                 </div>
                 <button class="carousel-arrow next">›</button>
-            </div>
-            <div class="carousel-indicators">
-                <span class="indicator active"></span>
-                <span class="indicator"></span>
-                <span class="indicator"></span>
-                <span class="indicator"></span>
+                <div class="carousel-indicators">
+                    <span class="indicator active"></span>
+                    <span class="indicator"></span>
+                    <span class="indicator"></span>
+                    <span class="indicator"></span>
+                </div>
             </div>
 
                     <h3>Mid-fidelity wireframes</h3>
@@ -620,12 +560,12 @@
                 <img src="../denverzoo/mf4.png" alt="Mid-fidelity wireframe 4">
             </div>
             <button class="carousel-arrow next">›</button>
-        </div>
-        <div class="carousel-indicators">
-            <span class="indicator active"></span>
-            <span class="indicator"></span>
-            <span class="indicator"></span>
-            <span class="indicator"></span>
+            <div class="carousel-indicators">
+                <span class="indicator active"></span>
+                <span class="indicator"></span>
+                <span class="indicator"></span>
+                <span class="indicator"></span>
+            </div>
         </div>
         
             <h3>High-fidelity wireframes
@@ -641,12 +581,12 @@
                     <img src="../denverzoo/hf4.png" alt="High-fidelity wireframe 4">
                 </div>
                 <button class="carousel-arrow next">›</button>
-            </div>
-            <div class="carousel-indicators">
-                <span class="indicator active"></span>
-                <span class="indicator"></span>
-                <span class="indicator"></span>
-                <span class="indicator"></span>
+                <div class="carousel-indicators">
+                    <span class="indicator active"></span>
+                    <span class="indicator"></span>
+                    <span class="indicator"></span>
+                    <span class="indicator"></span>
+                </div>
             </div>
             
             <div class="figma-embed" style="margin: 40px 0; text-align: center;">
@@ -711,11 +651,20 @@
 
         // Carousel functionality for multiple carousels
         const carousels = document.querySelectorAll('.carousel-container');
+        const carouselStates = [];
         
         carousels.forEach((carousel, carouselIndex) => {
             const slides = carousel.querySelectorAll('.carousel img');
             const indicators = carousel.querySelectorAll('.indicator');
-            let currentSlide = 0;
+            
+            console.log(`Carousel ${carouselIndex}: Found ${slides.length} slides and ${indicators.length} indicators`);
+            
+            // Store carousel state
+            carouselStates[carouselIndex] = {
+                currentSlide: 0,
+                slides: slides,
+                indicators: indicators
+            };
             
             // Initialize first slide as active
             if (slides.length > 0) {
@@ -738,7 +687,11 @@
             
             // Add event listeners to indicators
             indicators.forEach((indicator, index) => {
-                indicator.onclick = () => goToSlide(index, carouselIndex);
+                console.log(`Adding click handler to indicator ${index} in carousel ${carouselIndex}`);
+                indicator.onclick = () => {
+                    console.log(`Indicator ${index} clicked in carousel ${carouselIndex}`);
+                    goToSlide(index, carouselIndex);
+                };
             });
         });
 
@@ -747,26 +700,32 @@
             const slides = carousel.querySelectorAll('.carousel img');
             const indicators = carousel.querySelectorAll('.indicator');
             
+            console.log(`showSlide called: index=${index}, carouselIndex=${carouselIndex}`);
+            console.log(`Found ${slides.length} slides and ${indicators.length} indicators`);
+            
             // Remove active class from all slides and indicators in this carousel
             slides.forEach(slide => slide.classList.remove('active'));
             indicators.forEach(indicator => indicator.classList.remove('active'));
             
             // Add active class to current slide and indicator
-            if (slides[index]) slides[index].classList.add('active');
-            if (indicators[index]) indicators[index].classList.add('active');
+            if (slides[index]) {
+                slides[index].classList.add('active');
+                console.log(`Activated slide ${index}`);
+            }
+            if (indicators[index]) {
+                indicators[index].classList.add('active');
+                console.log(`Activated indicator ${index}`);
+            }
+            
+            // Update stored state
+            carouselStates[carouselIndex].currentSlide = index;
+            console.log(`Updated carousel state: currentSlide = ${index}`);
         }
 
         function changeSlide(direction, carouselIndex) {
             const carousel = carousels[carouselIndex];
             const slides = carousel.querySelectorAll('.carousel img');
-            let currentSlide = 0;
-            
-            // Find current active slide
-            slides.forEach((slide, index) => {
-                if (slide.classList.contains('active')) {
-                    currentSlide = index;
-                }
-            });
+            let currentSlide = carouselStates[carouselIndex].currentSlide;
             
             currentSlide += direction;
             
@@ -785,10 +744,13 @@
 
         // Optional: Add keyboard navigation for carousel
         document.addEventListener('keydown', function(e) {
-            if (e.key === 'ArrowLeft') {
-                changeSlide(-1);
-            } else if (e.key === 'ArrowRight') {
-                changeSlide(1);
+            // Use the first carousel for keyboard navigation
+            if (carouselStates.length > 0) {
+                if (e.key === 'ArrowLeft') {
+                    changeSlide(-1, 0);
+                } else if (e.key === 'ArrowRight') {
+                    changeSlide(1, 0);
+                }
             }
         });
 
