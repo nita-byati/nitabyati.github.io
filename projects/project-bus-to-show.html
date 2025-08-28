@@ -226,6 +226,57 @@
                 width: calc(33.33% - 14px);
             }
         }
+
+        /* Image Popup Styles */
+        .image-popup {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            cursor: pointer;
+        }
+
+        .image-popup img {
+            max-width: 90%;
+            max-height: 90%;
+            margin: auto;
+            display: block;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .close-popup {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: #fff;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        .close-popup:hover {
+            color: #db5292;
+        }
+
+        /* Make carousel images clickable */
+        .carousel img {
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+
+        .carousel img:hover {
+            transform: scale(1.02);
+        }
     </style>
 </head>
 <body>
@@ -258,9 +309,9 @@
             <div class="carousel-container">
                 <button class="carousel-arrow prev" onclick="changeSlide(-1)">‹</button>
                 <div class="carousel">
-                    <img src="../images/flier1.png" alt="Bus to Show Flier 1" class="active">
-                    <img src="../images/flier2.png" alt="Bus to Show Flier 2">
-                    <img src="../images/flier3.png" alt="Bus to Show Flier 3">
+                    <img src="../images/flier1.png" alt="Bus to Show Flier 1" class="active" onclick="openImagePopup(this.src)">
+                    <img src="../images/flier2.png" alt="Bus to Show Flier 2" onclick="openImagePopup(this.src)">
+                    <img src="../images/flier3.png" alt="Bus to Show Flier 3" onclick="openImagePopup(this.src)">
                 </div>
                 <button class="carousel-arrow next" onclick="changeSlide(1)">›</button>
             </div>
@@ -347,6 +398,29 @@
                 changeSlide(1);
             }
         });
+
+        // Image popup functionality
+        function openImagePopup(imageSrc) {
+            document.getElementById('popupImage').src = imageSrc;
+            document.getElementById('imagePopup').style.display = 'block';
+        }
+
+        function closeImagePopup() {
+            document.getElementById('imagePopup').style.display = 'none';
+        }
+
+        // Close popup when pressing Escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeImagePopup();
+            }
+        });
     </script>
+
+    <!-- Image Popup -->
+    <div id="imagePopup" class="image-popup" onclick="closeImagePopup()">
+        <span class="close-popup">&times;</span>
+        <img id="popupImage" src="" alt="Expanded Image">
+    </div>
 </body>
 </html>
